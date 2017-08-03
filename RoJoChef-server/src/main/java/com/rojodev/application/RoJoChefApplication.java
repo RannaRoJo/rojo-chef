@@ -34,7 +34,12 @@ public class RoJoChefApplication extends Application<RoJoConfiguration> {
 	public void run(RoJoConfiguration configuration, Environment environment) throws Exception {
 		final RecipeResource recipeResource = new RecipeResource();
 		
+		//connect the database
+		DatabaseFactory.connectDatabase(configuration.getMongoConfiguration().getHost(), configuration.getMongoConfiguration().getPort());
+		
 		environment.jersey().register(recipeResource);
+		
+		//manage the database to ensure connections are closed
 		environment.lifecycle().manage(DatabaseFactory.getDatabaseManager());
 	}
 	

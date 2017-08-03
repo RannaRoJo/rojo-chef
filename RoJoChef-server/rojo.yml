@@ -1,6 +1,10 @@
 template: whatever
 defaultName: whatever
 
+mongoConfiguration:
+  host: localhost
+  port: 27017
+
 # Logging settings.
 logging:
 

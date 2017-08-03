@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
+import org.apache.commons.lang3.StringUtils;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
@@ -25,6 +26,7 @@ import com.mongodb.client.MongoCollection;
 import com.rojodev.databasemanager.DatabaseFactory;
 import com.rojodev.databasemanager.RoJoDatabaseManager;
 import com.rojodev.models.Recipe;
+import com.rojodev.utils.ResponseUtils;
 
 @Path("/recipes")
 @Produces(MediaType.APPLICATION_JSON)
@@ -36,7 +38,7 @@ public class RecipeResource {
 	@Timed
 	public Response getRecipes(@QueryParam("id") String hexId) throws IOException {
 		
-		if(hexId == null || "".equals(hexId)) {
+		if(StringUtils.isBlank(hexId)) {
 			MongoCollection<Document> recipeTable = DatabaseFactory.getDatabaseManager().getDatabase().getCollection(RoJoDatabaseManager.RECIPE_TABLE);
 			FindIterable<Document> cursor = recipeTable.find();
 			return Response.ok(cursor).build();
@@ -44,7 +46,7 @@ public class RecipeResource {
 		else {
 			MongoCollection<Document> recipeTable = DatabaseFactory.getDatabaseManager().getDatabase().getCollection(RoJoDatabaseManager.RECIPE_TABLE);
 			BasicDBObject query = new BasicDBObject();
-			query.put("_id", new ObjectId(hexId));
+			query.put("_id", hexId);
 			Document result = recipeTable.find(query).first();
 			
 			return Response.ok(result).build();
@@ -56,9 +58,22 @@ public class RecipeResource {
 	public Response addRecipe(Recipe recipe) {
 		
 		if(recipe == null) {
-			logger.error("Unable to insert recipe, recipe may not be null");
-			return Response.status(Status.BAD_REQUEST).build();
+			logger.error("Unable to insert recipe, recipe may not be null.");
+			return ResponseUtils.buildBadRequestResponse("Recipe may not be blank.");
 		}
+		else if(StringUtils.isBlank(recipe.getRecipeName())) {
+			logger.error("Unable to insert recipe, recipe must include a name.");
+			return ResponseUtils.buildBadRequestResponse("Recipe must include a name.");
+		}
+		else if(recipe.getIngredients() == null || recipe.getIngredients().size() == 0) {
+			logger.error("Unable to insert recipe, recipe must include at least one ingredient.");
+			return ResponseUtils.buildBadRequestResponse("Recipe must include at least one ingredient.");
+		}
+		else if(recipe.getDirections() == null || recipe.getDirections().size() == 0) {
+			logger.error("Unable to insert recipe, recipe must include directions.");
+			return ResponseUtils.buildBadRequestResponse("Recipe must include directions.");
+		}
+		
 		ObjectId newId = new ObjectId();
 		recipe.set_id(newId.toHexString());
 
