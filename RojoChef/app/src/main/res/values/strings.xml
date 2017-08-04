@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Rojo Chef</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_recipe_detail">RecipeDetailActivity</string>
+    <string name="menumain_settings">Settings</string>
+    <string name="menumain_recipes">Recipes</string>
+    <string name="menumain_addRecipe">Add Recipe</string>
+    <string name="menumain_deleteRecipe">Delete Recipe</string>
+    <string name="menumain_importRecipe">Import Recipe</string>
+    <string name="menumain_pantry">Pantry</string>
+    <string name="menumain_updatePantry">Update Pantry</string>
+    <string name="menumain_scanPantryItem">Scan Pantry Item</string>
+    <string name="menumain_grocerylist">Grocery List</string>
+    <string name="menumain_addGroceryItem">Add Grocery Item</string>
+    <string name="menumain_deleteGroceryItem">Delete Grocery Item</string>
+    <string name="menumain_menus">Menus</string>
+    <string name="menumain_createMenu">Create Menu</string>
+    <string name="menumain_deleteMenu">Delete Menu</string>
+</resources>
