@@ -58,7 +58,8 @@ public class DownloadData extends AsyncTask<String, Void, String> {
         try {
             downloadStatus = downloadStatus.PROCESSING;
 //          URL url = new URL(params[0]); //disable for demo
-            URL url = new URL("http://10.241.5.181:8080/recipes");
+//          URL url = new URL("http://10.241.5.181:8080/recipes"); //works at Spillman
+            URL url = new URL("http://10.240.16.25:8080/recipes"); //works at Ranna's home
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");

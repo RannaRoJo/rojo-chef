@@ -3,8 +3,67 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.rojodev.rojochef.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:id="@+id/menumain_recipes"
+        android:orderInCategory="102"
+        android:title="@string/menumain_recipes">
+        <menu>
+            <item
+                android:id="@+id/menumain_addRecipe"
+                android:title="@string/menumain_addRecipe"/>
+            <item
+                android:id="@+id/menumain_deleteRecipe"
+                android:title="@string/menumain_deleteRecipe"/>
+            <item
+                android:id="@+id/menumain_importRecipe"
+                android:title="@string/menumain_importRecipe"/>
+        </menu>
+
+        </item>
+    <item
+        android:id="@+id/menumain_pantry"
+        android:orderInCategory="103"
+        android:title="@string/menumain_pantry">
+        <menu>
+            <item
+                android:id="@+id/menumain_updatePantry"
+                android:title="@string/menumain_updatePantry"/>
+            <item
+                android:id="@+id/menumain_scanPantryItem"
+                android:title="@string/menumain_scanPantryItem"/>
+        </menu>
+
+    </item>
+    <item
+        android:id="@+id/menumain_grocerylist"
+        android:orderInCategory="104"
+        android:title="@string/menumain_grocerylist">
+        <menu>
+            <item
+                android:id="@+id/menumain_addGroceryItem"
+                android:title="@string/menumain_addGroceryItem"/>
+            <item
+                android:id="@+id/menumain_deleteGroceryItem"
+                android:title="@string/menumain_deleteGroceryItem"/>
+        </menu>
+
+    </item>
+    <item
+        android:id="@+id/menumain_menus"
+        android:orderInCategory="105"
+        android:title="@string/menumain_menus">
+        <menu>
+            <item
+                android:id="@+id/menumain_createMenu"
+                android:title="@string/menumain_createMenu"/>
+            <item
+                android:id="@+id/menumain_deleteMenu"
+                android:title="@string/menumain_deleteMenu"/>
+        </menu>
+
+    </item>
+    <item
+        android:id="@+id/menumain_settings"
+        android:orderInCategory="106"
+        android:title="@string/menumain_settings"
         app:showAsAction="never"/>
 </menu>
