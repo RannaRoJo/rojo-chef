@@ -5,10 +5,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.rojodev.configuration.RoJoConfiguration;
-import com.rojodev.databasemanager.DatabaseFactory;
+import com.rojodev.database.manager.DatabaseFactory;
 import com.rojodev.resources.RecipeResource;
 
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
@@ -27,7 +28,7 @@ public class RoJoChefApplication extends Application<RoJoConfiguration> {
 	
 	@Override
 	public void initialize(Bootstrap<RoJoConfiguration> bootstrap) {
-		
+		bootstrap.addBundle(new AssetsBundle("/assets/", "/assets/", "index.html"));
 	}
 	
 	@Override

@@ -1,4 +1,4 @@
-package com.rojodev.databasemanager;
+package com.rojodev.database.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,8 +10,6 @@ import io.dropwizard.lifecycle.Managed;
 
 public class RoJoDatabaseManager implements Managed {
 
-	public static final String RECIPE_TABLE = "recipe";
-	
 	private static final Logger logger = LoggerFactory.getLogger(DatabaseFactory.class);
 	
 	private static MongoClient mongoClient;

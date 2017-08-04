@@ -14,9 +14,11 @@ public class User {
 	private String lastName;
 	@JsonProperty
 	private String middleName;
+	@JsonProperty
+	private String password;
 	
 	@JsonProperty
-	private List<Recipe> favoriteRecipes;
+	private List<String> favoriteRecipes;
 
 	public String getEmail() {
 		return email;
@@ -50,11 +52,11 @@ public class User {
 		this.middleName = middleName;
 	}
 
-	public List<Recipe> getFavoriteRecipes() {
+	public List<String> getFavoriteRecipes() {
 		return favoriteRecipes;
 	}
 
-	public void setFavoriteRecipes(List<Recipe> favoriteRecipes) {
+	public void setFavoriteRecipes(List<String> favoriteRecipes) {
 		this.favoriteRecipes = favoriteRecipes;
 	}
 	

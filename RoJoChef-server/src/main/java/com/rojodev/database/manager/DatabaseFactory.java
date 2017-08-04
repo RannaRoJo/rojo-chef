@@ -1,4 +1,4 @@
-package com.rojodev.databasemanager;
+package com.rojodev.database.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
